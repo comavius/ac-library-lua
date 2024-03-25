@@ -52,6 +52,17 @@ function DSU:merge(a, b)
     end
 end
 
+-- returns if a and b are in the same set
+function DSU:same(a, b)
+    -- a and b must be in range [1, n]
+    assert(math.type(a) == "integer", "DSU:same: a must be an integer")
+    assert(math.type(b) == "integer", "DSU:same: b must be an integer")
+    assert(self.private._n >= a and a > 0, "DSU:same: a must be in range [1, n]")
+    assert(self.private._n >= b and b > 0, "DSU:same: b must be in range [1, n]")
+    -- find the leader of a and b
+    return self:leader(a) == self:leader(b)
+end
+
 -- returns the leader of the set
 function DSU:leader(a)
     -- a must be in range [1, n]
