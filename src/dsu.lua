@@ -1,5 +1,6 @@
 -- Disjoint Set Union (DSU) data structure
--- Average time complexity of query is O(alpha(N)) by using path compression and union by size.
+-- Average time complexity of query is O(alpha(N)) by using path compression and union by size,
+-- where alpha is the inverse of Ackermann function.
 
 DSU = {}
 DSU.__index = DSU
